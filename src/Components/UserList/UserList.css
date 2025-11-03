@@ -1,0 +1,26 @@
+.list-container{
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    text-align: left;
+}
+
+.list-item {
+    /* display: flex; */
+    /* align-items: center; */
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.input-field {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    width: 200px;
+}
+
+.button-field {
+    background-color: rgb(17, 11, 11);
+    color: white;
+}
