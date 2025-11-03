@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import './UserList.css';
 
 interface User {
@@ -7,16 +7,7 @@ interface User {
   username: string
 }
 
-const debounce = <T extends (...args: any[]) => void>(cb: T, delay = 1000) => {
-  let timeout: ReturnType<typeof setTimeout> | null = null;
 
-  return function(this: any, ...args: Parameters<T>) {
-    if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      cb.apply(this, args);
-    }, delay);
-  };
-};
 
 function UserList() {
   const [error, setError] = useState<string | null>(null);
@@ -25,20 +16,27 @@ function UserList() {
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedTerm, setDebouncedTerm] = useState(""); // debounced term
 
-  // Update debouncedTerm with debounce
-  const updateDebouncedTerm = useMemo(
-    () =>
-      debounce((val: string) => {
-        setDebouncedTerm(val); // <-- triggers API
-      }, 1000),
-    []
-  );
+  const debounce = useCallback((func: Function, delay: number) => {
+    let timeoutId: number;
+    return (...args: any[]) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(null, args), delay);
+    };
+  }, []);
+
+      // Debounced search function
+      const debouncedSearch = useCallback(
+        debounce((searchValue: string) => {
+          setDebouncedTerm(searchValue);
+        }, 500),
+        [debounce]
+    );
 
   const onSearchTermChange = (e: any) => {
     const { value } = e.target;
     // dSearch(value); // ✅ pass latest value
     setSearchTerm(value); // immediate update
-    updateDebouncedTerm(value); // delayed API call
+    debouncedSearch(value); // delayed API call
   };
 
   useEffect( ()=> {
