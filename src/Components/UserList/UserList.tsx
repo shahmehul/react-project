@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import './UserList.css';
 
 interface User {
@@ -64,7 +65,7 @@ function UserList() {
       {error && (<p> {error} </p>)}
       <ul className="list-container">
         {userList.map((user) => (
-          <li className="list-item" key={user.id}><a href={`/posts/${user.id}`}> {user.name}</a></li>
+          <li className="list-item" key={user.id}><Link to={`/posts/${user.id}?name=${user.name}`}> {user.name}</Link></li>
         ))}
       </ul>
     </>

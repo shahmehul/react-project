@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import './Posts.css';
 
 interface Post {
@@ -12,6 +12,7 @@ interface Post {
 function Posts(){
     const [posts, setPosts] = useState<Post[]>([])
     const { userId } = useParams();
+    const [searchParams] = useSearchParams();
     const [error, setError] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     
@@ -42,7 +43,8 @@ function Posts(){
     if (!posts.length) return (<> No Posts found.</>)
 
     return (<>
-        <h1>Posts</h1>
+        <h3>User: {searchParams.get('name')}</h3>
+        <h4>Posts</h4>
         {
             posts.map((post,id)=>(
                 <div key={id} className="post-container">
