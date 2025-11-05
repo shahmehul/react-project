@@ -12,18 +12,35 @@ interface Post {
 function Posts(){
     const [posts, setPosts] = useState<Post[]>([])
     const { userId } = useParams();
-    console.log(userId)
+    const [error, setError] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
+    
 
     useEffect( ()=> {
-        const fetchPosts = async ()=> {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
-            const posts = await response.json();
-            console.log(posts);
-            setPosts(posts);
-            
+        try{
+            setLoading(true);
+            const fetchPosts = async ()=> {
+                const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+                const posts = await response.json();
+                console.log(posts);
+                setPosts(posts);
+                setLoading(false);
+            }
+            fetchPosts();
+        } catch(err:any){
+            setError('there was some error')
+            setLoading(false);
+        }finally{
+            setLoading(false);
         }
-        fetchPosts();
+        
+        
     },[userId])
+
+    if (loading) return (<> Loading ...</>)
+    if (error) return (<> {error}</>)
+    if (!posts.length) return (<> No Posts found.</>)
+
     return (<>
         <h1>Posts</h1>
         {
