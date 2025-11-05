@@ -5,18 +5,36 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+
+.navbar {
+  position: fixed;       /* Keeps it stuck to the viewport */
+  top: 0;                /* Align to top */
+  left: 0;               /* Full width */
+  width: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;         /* Keeps it above other elements */
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.navbar a {
+  color: white;
+  text-decoration: none;
 }
+
+.content {
+  margin-top: 80px; /* Prevent content from hiding behind navbar */
+}
+
 
 @keyframes logo-spin {
   from {
