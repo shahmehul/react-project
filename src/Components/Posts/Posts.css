@@ -1,0 +1,14 @@
+.post-container {
+    display: block;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.post {
+    font-weight: 400;
+    padding-left: 10px;
+}

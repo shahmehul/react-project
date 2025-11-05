@@ -64,7 +64,7 @@ function UserList() {
       {error && (<p> {error} </p>)}
       <ul className="list-container">
         {userList.map((user) => (
-          <li className="list-item" key={user.id}><p> {user.name}</p></li>
+          <li className="list-item" key={user.id}><a href={`/posts/${user.id}`}> {user.name}</a></li>
         ))}
       </ul>
     </>
