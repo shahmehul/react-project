@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import './UserList.css';
+import React from "react";
 
 interface User {
   id: string,
@@ -18,7 +19,7 @@ function UserList() {
   const [debouncedTerm, setDebouncedTerm] = useState(""); // debounced term
 
   const debounce = useCallback((func: Function, delay: number) => {
-    let timeoutId: number;
+    let timeoutId: number | NodeJS.Timeout;
     return (...args: any[]) => {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => func.apply(null, args), delay);

@@ -9,6 +9,7 @@
     margin: 20px;
     height: 80vh;
     min-width: 200px;
+    overflow: scroll;
 }
 
 .item {
@@ -20,4 +21,18 @@
 .error-message {
     color: red;
     font-weight: 600;
+}
+
+.input-field {
+    padding:10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin-left:0px;
+    margin-right:0px;
+    box-shadow:  1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.button-container{
+    display: flex;
+    gap: 10px;
 }

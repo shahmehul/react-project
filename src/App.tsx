@@ -3,6 +3,7 @@ import UserList from './Components/UserList/UserList';
 import Kanban from './Components/Kanban/Kanban';
 import Posts from './Components/Posts/Posts';
 import { Routes, Route, Link } from "react-router-dom";
+import React from 'react';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/"/>
+        <Route path="/" element={<UserList />}/>
         <Route path="/users" element={<UserList />} />
         <Route path="/kanban" element={<Kanban />} />
         <Route path="/posts/:userId" element={<Posts />} />
