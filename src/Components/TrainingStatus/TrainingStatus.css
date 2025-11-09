@@ -1,16 +1,54 @@
-.dot {
-    height: 25px;
-    width: 25px;
-    
-    border-radius: 50%;
-    display: inline-block;
-  }
 
-  .class-container {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
+
+.progress-bar {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 30px;
+  padding-top:30px;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.step-container  p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.line-completed {
+  background: limegreen;
+}
+
+.line {
+  background: #eae2e2;
+  position: relative;
+  top: -25px;
+  left: 70px;
+  width: 120px;
+  height: 4px;
+  z-index: -1;
+}
+
+.line.green {
+  background-color: #019177; 
+}
+
+.dot {
+  height: 50px;
+  display: flex;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  align-items: center;
+  font-weight: 600;
+  color: white !important;
+  justify-content: center;
+}
 
   .center {
     text-align: center;
@@ -33,11 +71,17 @@
     padding-bottom: 25px;
   }
 
-  .green{
+  .completed{
     background-color: #019177;
+    color: white;
   }
 
-  .gray{
+  .started {
+    background-color: blue;
+    color: white;
+  }
+
+  .pending{
     background-color: #eae2e2;
   }
 

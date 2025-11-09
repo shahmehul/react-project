@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import TrainingDot from "./TrainingDot";
 import './TrainingStatus.css';
-import ProgressTracker from "./ProgressTracker";
 
 interface Subject {
     id: number,
     name: string,
-    completed: boolean
+    status: string
 }
 interface Employee {
     id: number,
@@ -20,88 +18,89 @@ function TrainingStatus() {
             id: 1,
             name: "Alice",
             trainings: [
-                { id: 1, name: "Security 101", completed: true },
-                { id: 2, name: "Compliance Basics", completed: true },
-                { id: 3, name: "Advanced Training", completed: false }
+                { id: 1, name: "Security 101", status: "Completed" },
+                { id: 2, name: "Compliance Basics", status: "Started" },
+                { id: 3, name: "Advanced Training", status: "Invitation Sent" }
             ]
         },
         {
             id: 2,
             name: "Bob",
             trainings: [
-                { id: 1, name: "Security 101", completed: true },
-                { id: 2, name: "Compliance Basics", completed: true },
-                { id: 3, name: "Advanced Training", completed: true }
+                { id: 1, name: "Security 101", status: "Completed" },
+                { id: 2, name: "Compliance Basics", status: "Completed" },
+                { id: 3, name: "Advanced Training", status: "Completed" }
             ]
         },
         {
             id: 3,
             name: "Charlie",
             trainings: [
-                { id: 1, name: "Security 101", completed: true },
-                { id: 2, name: "Compliance Basics", completed: false },
-                { id: 3, name: "Advanced Training", completed: false }
+                { id: 1, name: "Security 101", status: "Started" },
+                { id: 2, name: "Compliance Basics", status: "Invitation Sent" },
+                { id: 3, name: "Advanced Training", status: "Invitation Sent" }
             ]
         },
         {
             id: 4,
             name: "Diana",
             trainings: [
-                { id: 1, name: "Security 101", completed: false },
-                { id: 2, name: "Compliance Basics", completed: false },
-                { id: 3, name: "Advanced Training", completed: false }
+                { id: 1, name: "Security 101", status: "Invitation Sent" },
+                { id: 2, name: "Compliance Basics", status: "Invitation Sent" },
+                { id: 3, name: "Advanced Training", status: "Invitation Sent" }
             ]
         },
         {
             id: 5,
             name: "Edward",
             trainings: [
-                { id: 1, name: "Security 101", completed: true },
-                { id: 2, name: "Compliance Basics", completed: true },
-                { id: 3, name: "Advanced Training", completed: false }
+                { id: 1, name: "Security 101", status: "Completed" },
+                { id: 2, name: "Compliance Basics", status: "Completed" },
+                { id: 3, name: "Advanced Training", status: "Started" }
             ]
         },
         {
             id: 6,
             name: "Fiona",
             trainings: [
-                { id: 1, name: "Security 101", completed: true },
-                { id: 2, name: "Compliance Basics", completed: false },
-                { id: 3, name: "Advanced Training", completed: false }
+                { id: 1, name: "Security 101", status: "Completed" },
+                { id: 2, name: "Compliance Basics", status: "Started" },
+                { id: 3, name: "Advanced Training", status: "Invitation Sent" }
             ]
         }
     ];
 
-    const [employees, setEmployees] = useState(employeesData);
-    const [currentIndex, setCurrentIndex] = useState(1);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const currentEmployee = employeesData[currentIndex];
 
     return (
         <>
             <h2 className="pbl">Employee Training Status</h2>
-            {employees.map((employee: Employee, index) =>
-                currentIndex === index && (
-                    <div className='employee-container pbl' key={employee.id}>
-                        <h4 className="center">{employee.name}</h4>
-                        <p>Employee {employee.id} of {employees.length}</p>
-                        {employee.trainings.map((training) => (
-                            <div key={training.id} className="class-container">
-                                <TrainingDot name={training.name} completed={training.completed}></TrainingDot>
+            <div className='employee-container pbl' key={currentIndex}>
+                <h4 className="center">{currentEmployee.name}</h4>
+                <p>Employee {currentEmployee.id} of {employeesData.length}</p>
+                <div className="progress-bar">
+                    {currentEmployee.trainings.map((training, index) => (
+                        <div key={training.id} className="step-container">
+                            <div className={training.status === 'Completed' ? 'dot completed' :
+                                training.status === 'Started' ? 'dot started' : 'dot pending'}>
+                                {training.status === 'Completed' ? "✔" : index + 1}
                             </div>
-                        ))}
-                        <div className="flex-item ptl">
-                            <ProgressTracker trainings={employee.trainings}></ProgressTracker>
+                            {index < currentEmployee.trainings.length - 1 && (
+                                <div className={training.status === 'Completed' &&
+                                    (currentEmployee.trainings[index + 1].status === 'Completed' || currentEmployee.trainings[index + 1].status === 'Started')
+                                    ? 'line green' : training.status === 'Started' ? 'line gray' : 'line'} ></div>)}
+                            <p className="ptl">{training.name}</p>
+                            <p>{training.status}</p>
                         </div>
-                        
-                    </div>
-                )
-            )}
-            <div className="action-container">
-                <button className={currentIndex === 0 ? 'disabled': 'green'} disabled={currentIndex === 0} onClick={()=> setCurrentIndex(prev => prev > 0 ? prev-1 : 0)  }> Previous </button>
-                <button className={currentIndex === employees.length - 1 ? 'disabled': 'green'} disabled={currentIndex === employees.length - 1} onClick={()=> setCurrentIndex(prev => prev+1)  }>Next</button>
+                    ))}
+                </div>
             </div>
-            
+            <div className="action-container">
+                <button className={currentIndex === 0 ? 'disabled' : 'green'} disabled={currentIndex === 0} onClick={() => setCurrentIndex(prev => prev > 0 ? prev - 1 : 0)}> Previous </button>
+                <button className={currentIndex === employeesData.length - 1 ? 'disabled' : 'green'} disabled={currentIndex === employeesData.length - 1} onClick={() => setCurrentIndex(prev => prev + 1)}>Next</button>
+            </div>
         </>
-
     )
 }
 
