@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.list{
+    list-style-type: none;
+}
+
+.list li{
+    text-align: left;
+}
+
+.pb10 {
+    padding-bottom: 10px;
+}
+
+.float-left {
+    float:left;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    border: 1x solid gray;
+    box-shadow: 1px gray;
+    border-radius: 5px;
+}
+
+.add-container button {
+    padding : 10px;
+    margin: 10px;
+    color: white;
+    background-color: black;
+    border: 1px solid rgb(174, 174, 178);
+}
+
+.error-container{
+    font-weight: 600;
+    font-size: 14px;
+    color: red;
+    padding-bottom: 2rem;
+}
+
+.action-button {
+    background-color: transparent;
+    border: none;
+}
