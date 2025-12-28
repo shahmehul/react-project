@@ -1,0 +1,68 @@
+.customer-container {
+    min-width: 1000px;
+    margin: 3rem;
+    text-align: left;
+}
+
+
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: row;
+}
+
+.end {
+    margin-left: auto;
+}
+
+.ptl {
+    padding-top: 1rem;
+} 
+
+.manager-select {
+    height: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.ml {
+    margin: 1rem;
+}
+
+.mtl {
+    margin-top: 10px;
+}
+
+.mrl {
+    margin-right: 10px;
+}
+
+.primary-button {
+    background-color: black;
+    height: 32px;
+    padding:5px;
+    color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.secondary-button {
+    height: 32px;
+    padding:5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
