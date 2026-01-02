@@ -9,6 +9,8 @@ import More from './Components/More/More';
 import { PaginationTest } from './Components/Pagination/PaginationTest';
 import AutoComplete from './Components/AutoComplete/AutoComplete';
 import Customers from './Components/Customers/Customers';
+import Books from './Components/Books/Books';
+import Catalog from './Components/ Catalog/Catalog';
 
 import React from 'react';
 
@@ -35,9 +37,9 @@ function App() {
         <Route path="/autocomplete" element={<AutoComplete/>} />
         <Route path="/posts/:userId" element={<Posts />} />
         <Route path="/customers" element={<Customers />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/catalog" element={<Catalog/>}/>
       </Routes>
-
-      
     </>
   );
 }

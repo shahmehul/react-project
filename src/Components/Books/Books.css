@@ -1,0 +1,11 @@
+.catalog-container{
+    padding-top:32px;
+    padding-bottom:32px;
+    background-color: #fafafa;
+    width: 100vw;
+    margin: 0 1rem;
+}
+
+.category-text{
+  text-align: left;
+}

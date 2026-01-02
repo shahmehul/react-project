@@ -1,0 +1,28 @@
+.container .book-group h3 {
+    text-align: center;
+}
+
+.book-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    gap: 20px;
+}
+
+.header-text{
+    text-align: left;
+}
+
+.book-img {
+    width: 140px;
+    height: 160px;
+}
+.book-card {
+    width: 200px;
+    height: 350px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: lightgray;
+}

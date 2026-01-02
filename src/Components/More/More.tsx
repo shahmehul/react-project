@@ -9,7 +9,8 @@ export default function More(){
                 <Link to="/paginationTest">Pagination</Link> {" "}
                 <Link to="/autocomplete">Auto Complete</Link> {" "}
                 <Link to="/customers">Customers</Link> {" "}
-                <Link to="/">Home</Link> {" "}
+                <Link to="/books">Books</Link> {" "}
+                <Link to="/catalog">Book Catalog</Link> {" "}
             </ul>
         </nav>
     )
