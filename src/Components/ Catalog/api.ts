@@ -1,6 +1,7 @@
 import type { BookItem, OpenLibraryDoc } from "./model";
 
 const BASE_URL = "https://openlibrary.org";
+const authorCache = new Map<string, string>();
 
 /**
  * Fetch raw books from Open Library search API
@@ -38,7 +39,7 @@ async function getAuthorName(authorKey: string): Promise<string | null> {
 export async function fetchCatalog(query: string): Promise<BookItem[]> {
     const books = await fetchBooks(query);
     const bookItems: BookItem[] = [];
-    const authorCache = new Map<string, string>();
+    
   
     for (const book of books) {
       if (!book.author_key || book.author_key.length === 0) continue;
