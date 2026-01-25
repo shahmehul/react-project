@@ -11,6 +11,8 @@ export default function More(){
                 <Link to="/customers">Customers</Link> {" "}
                 <Link to="/books">Books</Link> {" "}
                 <Link to="/catalog">Book Catalog</Link> {" "}
+                <Link to="/tradingPage">Trading Page</Link> {" "}
+                <Link to="/navBar">Nav Bar</Link>
             </ul>
         </nav>
     )

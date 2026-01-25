@@ -1,0 +1,36 @@
+{
+    "menu": [
+      {
+        "id": "dashboard",
+        "label": "Dashboard"
+      },
+      {
+        "id": "products",
+        "label": "Products",
+        "children": [
+          {
+            "id": "electronics",
+            "label": "Electronics",
+            "children": [
+              {
+                "id": "phones",
+                "label": "Phones"
+              },
+              {
+                "id": "laptops",
+                "label": "Laptops"
+              }
+            ]
+          },
+          {
+            "id": "furniture",
+            "label": "Furniture"
+          }
+        ]
+      },
+      {
+        "id": "orders",
+        "label": "Orders"
+      }
+    ]
+  }

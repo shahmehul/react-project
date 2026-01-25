@@ -1,0 +1,39 @@
+.layout {
+    display: "flex";
+    height: "100vh";
+    font-family: "Arial, sans-serif";
+}
+
+.sidebar {
+    width: 260;
+    border-right: "1px solid #ddd";
+    padding: 16;
+    overflow-Y: "auto";
+}
+
+.content {
+    flex: 1;
+    padding: 24;
+}
+
+
+.item {
+    cursor: "pointer";
+    padding: "6px 8px";
+    border-radius: 4;
+}
+
+.active-item {
+    background: "#2563eb";
+    color: "#fff"
+}
+
+.children {
+    margin-left: 16;
+    margin-top: 4;
+}
+
+.toggle {
+    margin-right: 6;
+    font-weight: 700;
+}

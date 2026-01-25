@@ -11,6 +11,8 @@ import AutoComplete from './Components/AutoComplete/AutoComplete';
 import Customers from './Components/Customers/Customers';
 import Books from './Components/Books/Books';
 import Catalog from './Components/ Catalog/Catalog';
+import Trading from './Components/Trading/Trading';
+import NavBar  from './Components/NavBar/NavBar';
 
 import React from 'react';
 
@@ -39,6 +41,9 @@ function App() {
         <Route path="/customers" element={<Customers />} />
         <Route path="/books" element={<Books />} />
         <Route path="/catalog" element={<Catalog/>}/>
+        <Route path="/tradingPage" element={<Trading/>}/>
+        <Route path="/navBar" element={<NavBar/>}/>
+
       </Routes>
     </>
   );

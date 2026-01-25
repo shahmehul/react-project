@@ -1,0 +1,79 @@
+.trading-container {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  
+    color-scheme: dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #000000;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  
+  .action-buttons {
+    display: flex;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    gap : 10px;
+  }
+  
+  .trade-btn {
+    flex: 1;
+    border: none;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    transition: filter 0.2s;
+  }
+  
+  .trade-btn:hover {
+    filter: brightness(1.1);
+  }
+  
+  .buy-btn {
+    background-color: #2ebd85; /* Green */
+  }
+  
+  .sell-btn {
+    background-color: #ff5235; /* Orange-Red from screenshot */
+  }
+  
+  .order-history {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-family: 'Roboto Mono', 'Courier New', monospace; /* Monospace for financial data */
+  }
+  
+  .order-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 10px;
+    font-size: 1.1rem;
+  }
+  
+  .buy-text {
+    color: #2ebd85;
+  }
+  
+  .sell-text {
+    color: #ff5235;
+  }
+  
+  .divider {
+      border-top: 1px solid #333;
+      margin: 15px 0;
+      width: 100%;
+  }
+  

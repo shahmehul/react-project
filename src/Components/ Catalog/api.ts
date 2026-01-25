@@ -38,18 +38,18 @@ async function getAuthorName(authorKey: string): Promise<string | null> {
 export async function fetchCatalog(query: string): Promise<BookItem[]> {
     const books = await fetchBooks(query);
     const bookItems: BookItem[] = [];
-    const authorCache = new Map<string, string>();
+    // const authorCache = new Map<string, string>();
   
     for (const book of books) {
       if (!book.author_key || book.author_key.length === 0) continue;
   
       const authorNames = await Promise.all(
         book.author_key.map(async (authorId) => {
-          if (authorCache.has(authorId)) return authorCache.get(authorId)!;
+          // if (authorCache.has(authorId)) return authorCache.get(authorId)!;
   
           try {
             const authorName = await getAuthorName(authorId);
-            authorCache.set(authorId, authorName as string);
+            // authorCache.set(authorId, authorName as string);
             return authorName;
           } catch {
             return null;
