@@ -52,10 +52,6 @@ function UserList() {
     fetchUsers();
   },[debouncedTerm])
 
-
-  if (error) return (<p> {error} </p>)
-  if (loading) return (<p> Loading ... </p>)
-
   return (
     <div className="user-container">
       <h1> User List </h1>
@@ -65,6 +61,7 @@ function UserList() {
       </div>
       
       {error && (<p> {error} </p>)}
+      {loading && (<p> Loading ... </p>)}
       <ul className="list-container">
         {userList.map((user) => (
           <li className="list-item" key={user.id}><Link to={`/posts/${user.id}?name=${user.name}`}> {user.name}</Link></li>
