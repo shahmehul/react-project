@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface MenuNode {
     id: string;
     label: string;
+    link: string;
     children?: MenuNode[];
 }
 
@@ -54,14 +56,16 @@ export default function SidebarItem({
         setActiveId: (id: string) => void;
     }) {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const hasChildren = !!node.children && node.children.length > 0;
-
+    const navigate = useNavigate();
 
     function handleClick() {
         setActiveId(node.id);
         if (hasChildren) {
             setOpen((prev) => !prev);
+        } else {
+            navigate(node.link)
         }
     }
 

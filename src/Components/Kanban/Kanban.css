@@ -3,6 +3,10 @@
     flex-direction: row;
 }
 
+.kanban-container h1:first-child {
+    margin-top: 0px;
+}
+
 .items-container {
     border: 1px solid gray;
     padding: 20px;

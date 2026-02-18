@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.container h1:first-of-type {
+    margin-top: 0px;
+}
+
 .list{
     list-style-type: none;
 }

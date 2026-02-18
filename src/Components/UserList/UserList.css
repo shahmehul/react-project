@@ -1,5 +1,16 @@
-h1{
+.user-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container {
+    display: flex;
+    gap:10px;
+}
+
+.user-container h1:first-child{
     text-align: left;
+    margin-top: 0px;
 }
 
 .list-container{
@@ -27,4 +38,6 @@ h1{
 .button-field {
     background-color: rgb(17, 11, 11);
     color: white;
+    padding:10px;
+    margin:10px;
 }

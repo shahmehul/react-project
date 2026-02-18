@@ -12,41 +12,38 @@ import Customers from './Components/Customers/Customers';
 import Books from './Components/Books/Books';
 import Catalog from './Components/ Catalog/Catalog';
 import Trading from './Components/Trading/Trading';
-import NavBar  from './Components/NavBar/NavBar';
+import NavBar from './Components/NavBar/NavBar';
 
 import React from 'react';
 
 function App() {
   return (
     <>
-      <nav className='navbar'>
-        <Link to="/">Home | </Link> {" "}
-        <Link to="/users">Users | </Link> {" "}
-        <Link to="/kanban"> Board | </Link> {" "}
-        <Link to="/task"> Tasks |</Link> {" "}
-        <Link to="/trainingstatus"> Training |  </Link> {" "}
-        <Link to="/more"> More </Link> {" "}
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<UserList />}/>
-        <Route path="/users" element={<UserList />} />
-        <Route path="/kanban" element={<Kanban />} />
-        <Route path="/task" element={<ToDoList/>} />  
-        <Route path="/trainingstatus" element={<TrainingStatus/>} />
-        <Route path="/more" element={<More/>} />
-        <Route path="/paginationTest" element={<PaginationTest/>} />
-        <Route path="/autocomplete" element={<AutoComplete/>} />
-        <Route path="/posts/:userId" element={<Posts />} />
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/catalog" element={<Catalog/>}/>
-        <Route path="/tradingPage" element={<Trading/>}/>
-        <Route path="/navBar" element={<NavBar/>}/>
-
-      </Routes>
-    </>
-  );
+      <div style={{ display: 'flex' }}>
+        <div style={{ marginRight:'2rem'}} >
+          <NavBar></NavBar>
+        </div>
+        <div>
+          <Routes>
+            <Route path="/" element={<UserList />} />
+            <Route path="/users" element={<UserList />} />
+            <Route path="/kanban" element={<Kanban />} />
+            <Route path="/task" element={<ToDoList />} />
+            <Route path="/trainingstatus" element={<TrainingStatus />} />
+            <Route path="/more" element={<More />} />
+            <Route path="/paginationTest" element={<PaginationTest />} />
+            <Route path="/autocomplete" element={<AutoComplete />} />
+            <Route path="/posts/:userId" element={<Posts />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/tradingPage" element={<Trading />} />
+            <Route path="/navBar" element={<NavBar />} />
+          </Routes>
+        </div>
+      </div>
+      </>
+      );
 }
 
 export default App;

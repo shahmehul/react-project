@@ -1,36 +1,73 @@
 {
     "menu": [
       {
-        "id": "dashboard",
-        "label": "Dashboard"
+        "id": "home",
+        "label": "Home",
+        "link": "/" 
       },
       {
-        "id": "products",
-        "label": "Products",
+        "id": "programs",
+        "label": "Programs",
+        "link": "/", 
         "children": [
           {
-            "id": "electronics",
-            "label": "Electronics",
+            "id": "category",
+            "label": "Category",
+            "link": "/" ,
             "children": [
               {
-                "id": "phones",
-                "label": "Phones"
+                "id": "task",
+                "label": "Tasks",
+                "link": "/task"
               },
               {
-                "id": "laptops",
-                "label": "Laptops"
+                "id": "kanban",
+                "link": "/kanban",
+                "label": "Kanban"
+              },
+              {
+                "id": "trainingstatus",
+                "label": "Training Status",
+                "link": "/trainingstatus"
+              },
+              {
+                "id": "users",
+                "label": "Users",
+                "link": "/users"
+              },
+              {
+                "id": "pagination",
+                "label": "Pagination",
+                "link": "/paginationTest"
+              },
+              {
+                "id": "autocomplete",
+                "label": "Auto Complete",
+                "link": "/autocomplete"
+              },
+              {
+                "id": "customers",
+                "label": "Customers",
+                "link": "/customers"
+              },
+              {
+                "id": "books",
+                "label": "Books",
+                "link": "/books"
+              },
+              {
+                "id": "catalog",
+                "label": "Catalog",
+                "link": "/catalog"
+              },
+              {
+                "id": "tradingPage",
+                "label": "Trading Page",
+                "link": "/tradingPage"
               }
             ]
-          },
-          {
-            "id": "furniture",
-            "label": "Furniture"
           }
         ]
-      },
-      {
-        "id": "orders",
-        "label": "Orders"
       }
     ]
-  }
+}

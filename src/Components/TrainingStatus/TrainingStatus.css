@@ -1,4 +1,6 @@
-
+.training-container h1:first-child {
+  margin-top: 0px;
+}
 
 .progress-bar {
   display: flex;

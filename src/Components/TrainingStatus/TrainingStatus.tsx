@@ -74,8 +74,8 @@ function TrainingStatus() {
     const currentEmployee = employeesData[currentIndex];
 
     return (
-        <>
-            <h2 className="pbl">Employee Training Status</h2>
+        <div className="training-container">
+            <h1 className="pbl">Employee Training Status</h1>
             <div className='employee-container pbl' key={currentIndex}>
                 <h4 className="center">{currentEmployee.name}</h4>
                 <p>Employee {currentEmployee.id} of {employeesData.length}</p>
@@ -100,7 +100,7 @@ function TrainingStatus() {
                 <button className={currentIndex === 0 ? 'disabled' : 'green'} disabled={currentIndex === 0} onClick={() => setCurrentIndex(prev => prev > 0 ? prev - 1 : 0)}> Previous </button>
                 <button className={currentIndex === employeesData.length - 1 ? 'disabled' : 'green'} disabled={currentIndex === employeesData.length - 1} onClick={() => setCurrentIndex(prev => prev + 1)}>Next</button>
             </div>
-        </>
+        </div>
     )
 }
 

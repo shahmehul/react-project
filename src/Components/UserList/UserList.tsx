@@ -9,8 +9,6 @@ interface User {
   username: string
 }
 
-
-
 function UserList() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -27,7 +25,7 @@ function UserList() {
   }, []);
 
       // Debounced search function
-      const debouncedSearch = useCallback(
+    const debouncedSearch = useCallback(
         debounce((searchValue: string) => {
           setDebouncedTerm(searchValue);
         }, 500),
@@ -59,17 +57,20 @@ function UserList() {
   if (loading) return (<p> Loading ... </p>)
 
   return (
-    <>
+    <div className="user-container">
       <h1> User List </h1>
-      <input className="input-field" onChange={onSearchTermChange} type="text" value={searchTerm} placeholder="Please Enter Query"/>
-      <button className="button-field" type="button" >Search</button>
+      <div className="search-container">
+        <input className="input-field" onChange={onSearchTermChange} type="text" value={searchTerm} placeholder="Please Enter Query"/>
+        <button className="button-field" type="button" >Search</button>
+      </div>
+      
       {error && (<p> {error} </p>)}
       <ul className="list-container">
         {userList.map((user) => (
           <li className="list-item" key={user.id}><Link to={`/posts/${user.id}?name=${user.name}`}> {user.name}</Link></li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

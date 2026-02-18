@@ -68,7 +68,7 @@ function Kanban() {
     }
 
     return (
-        <>
+        <div className="kanban-container">
             <h1> Kanban Board</h1>
             <p className="error-message"> {errorMessage} </p>
             <div className='board-container'>
@@ -101,7 +101,7 @@ function Kanban() {
                     ))
                 }
             </div>
-        </>
+        </div>
     )
 }
 
