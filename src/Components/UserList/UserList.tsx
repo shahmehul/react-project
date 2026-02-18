@@ -16,27 +16,16 @@ function UserList() {
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedTerm, setDebouncedTerm] = useState(""); // debounced term
 
-  const debounce = useCallback((func: Function, delay: number) => {
-    let timeoutId: number | NodeJS.Timeout;
-    return (...args: any[]) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => func.apply(null, args), delay);
-    };
-  }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedTerm(searchTerm);
+    }, 500);
+  
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
-      // Debounced search function
-    const debouncedSearch = useCallback(
-        debounce((searchValue: string) => {
-          setDebouncedTerm(searchValue);
-        }, 500),
-        [debounce]
-    );
-
-  const onSearchTermChange = (e: any) => {
-    const { value } = e.target;
-    // dSearch(value); // ✅ pass latest value
-    setSearchTerm(value); // immediate update
-    debouncedSearch(value); // delayed API call
+  const onSearchTermChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
   };
 
   useEffect( ()=> {
