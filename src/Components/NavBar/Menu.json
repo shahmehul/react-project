@@ -69,6 +69,11 @@
                 "id": "products",
                 "label": "Products",
                 "link": "/products"
+              },
+              {
+                "id": "chat",
+                "label": "Chat",
+                "link": "/chat"
               }
             ]
           }

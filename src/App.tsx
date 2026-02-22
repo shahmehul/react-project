@@ -13,6 +13,7 @@ import Product from './Components/Product/Product';
 import Catalog from './Components/ Catalog/Catalog';
 import Trading from './Components/Trading/Trading';
 import NavBar from './Components/NavBar/NavBar';
+import Chat from './Components/Chat/Chat';
 
 import React from 'react';
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/tradingPage" element={<Trading />} />
             <Route path="/navBar" element={<NavBar />} />
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </div>
       </div>
