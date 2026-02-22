@@ -95,7 +95,6 @@ function Kanban() {
                                     </div>
                                     ) : <button onClick={()=> onAddClick(columnKey as status)}> Add New</button>
                                 }
-                                
                             </div>
                         </div>
                     ))

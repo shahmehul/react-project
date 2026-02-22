@@ -1,105 +1,69 @@
-import { useState, useEffect } from "react";
-import "./AutoComplete.css";
+import { useState } from "react";
 
-const list = [
-  { id: 1, firstName: "Jon", lastName: "Doe" },
-  { id: 2, firstName: "Laa", lastName: "Abcd" },
-  { id: 3, firstName: "Mary", lastName: "Penny" },
-  { id: 4, firstName: "Marry2", lastName: "Doe2" },
-  { id: 5, firstName: "Alice", lastName: "Wonderful" },
-  { id: 6, firstName: "Jon", lastName: "Doe" },
-  { id: 7, firstName: "Laa", lastName: "Abcd" },
-  { id: 8, firstName: "Mary", lastName: "Penny" },
-  { id: 9, firstName: "Marry2", lastName: "Doe2" },
-  { id: 10, firstName: "Alice", lastName: "Wonderful" }
-];
+const options = ["Apple", "Banana", "Orange", "Mango", "Grapes"];
 
-export default function AutoComplete() {
-  const [input, setInput] = useState("");
-  const [listItems, setListItems] = useState(list);
-  const [activeIndex, setActiveIndex] = useState(-1);
+export default function Autocomplete() {
+  const [query, setQuery] = useState("");
+  const [show, setShow] = useState(false);
 
-  /* ---------------- Debounce filtering ---------------- */
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const value = input.toLowerCase();
-
-      setListItems(
-        list.filter(
-          item =>
-            item.firstName.toLowerCase().includes(value) ||
-            item.lastName.toLowerCase().includes(value)
-        )
-      );
-
-      setActiveIndex(-1);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [input]);
-
-  /* ---------------- Keyboard navigation ---------------- */
-  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!listItems.length) return;
-
-    switch (e.key) {
-      case "ArrowDown":
-        setActiveIndex(prev =>
-          prev < listItems.length - 1 ? prev + 1 : 0
-        );
-        break;
-
-      case "ArrowUp":
-        setActiveIndex(prev =>
-          prev > 0 ? prev - 1 : listItems.length - 1
-        );
-        break;
-
-      case "Enter":
-        if (activeIndex >= 0) {
-          const selected = listItems[activeIndex];
-          setInput(`${selected.firstName} ${selected.lastName}`);
-          setListItems([]);
-        }
-        break;
-    }
-  };
-
-  /* ---------------- Highlight matched text ---------------- */
-  const highlightText = (text: string) => {
-    if (!input) return text;
-
-    const regex = new RegExp(`(${input})`, "ig");
-    return text.split(regex).map((part, i) =>
-      part.toLowerCase() === input.toLowerCase() ? (
-        <span key={i} className="highlight">
-          {part}
-        </span>
-      ) : (
-        part
-      )
-    );
-  };
+  const filtered = options.filter(item =>
+    item.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
-    <div className="auto-complete-container">
+    <div style={{ width: 250, position: "relative" }}>
       <input
-        className="input-field"
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        onKeyDown={onKeyDown}
-        placeholder="Enter Text Here"
+        value={query}
+        onChange={e => {
+          setQuery(e.target.value);
+          setShow(true);
+        }}
+        onFocus={()=> setShow(true)}
+        onBlur={() => setTimeout(() => {
+          setShow(false);
+        },150)}
+        style={{ width: 250, margin:0 }}
+        placeholder="Search fruit..."
       />
 
-      {listItems.length > 0 && (
-        <ul className="list-item">
-          {listItems.map((item, index) => (
+      <span
+        style={{
+          position: "relative",
+          top:"-33px",
+          left:"55%",
+          transform: "translateY(-50%)",
+          pointerEvents: "none", // lets clicks go to input
+          fontSize: 28
+        }}
+      >
+        {show === true ? "˄" : "˅"}
+      </span>
+      {show && (
+        <ul
+          style={{
+            width: 270,
+            position: "absolute",
+            top:"49%",
+            marginLeft:'25px',
+            border: "1px solid #ccc",
+            background: "#fff",
+            listStyle: "none",
+            padding: 0,
+            margin: 0,
+            maxHeight: 150,
+            overflowY: "auto"
+          }}
+        >
+          {filtered.map(item => (
             <li
-              key={item.id}
-              className={index === activeIndex ? "active" : ""}
+              key={item}
+              onClick={() => {
+                setQuery(item);
+                setShow(false);
+              }}
+              style={{ padding: 8, cursor: "pointer" }}
             >
-              {highlightText(item.firstName)}{" "}
-              {highlightText(item.lastName)}
+              {item}
             </li>
           ))}
         </ul>
