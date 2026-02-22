@@ -64,6 +64,11 @@
                 "id": "tradingPage",
                 "label": "Trading Page",
                 "link": "/tradingPage"
+              },
+              {
+                "id": "products",
+                "label": "Products",
+                "link": "/products"
               }
             ]
           }

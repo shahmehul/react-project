@@ -9,6 +9,7 @@ import { PaginationTest } from './Components/Pagination/PaginationTest';
 import AutoComplete from './Components/AutoComplete/AutoComplete';
 import Customers from './Components/Customers/Customers';
 import Books from './Components/Books/Books';
+import Product from './Components/Product/Product';
 import Catalog from './Components/ Catalog/Catalog';
 import Trading from './Components/Trading/Trading';
 import NavBar from './Components/NavBar/NavBar';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/posts/:userId" element={<Posts />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/books" element={<Books />} />
+            <Route path="/products" element={<Product />} />
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/tradingPage" element={<Trading />} />
             <Route path="/navBar" element={<NavBar />} />
