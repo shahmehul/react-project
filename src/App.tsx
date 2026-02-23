@@ -14,6 +14,7 @@ import Catalog from './Components/ Catalog/Catalog';
 import Trading from './Components/Trading/Trading';
 import NavBar from './Components/NavBar/NavBar';
 import Chat from './Components/Chat/Chat';
+import BarChart from './Components/BarChart/BarChart';
 
 import React from 'react';
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/tradingPage" element={<Trading />} />
             <Route path="/navBar" element={<NavBar />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/barChart" element={<BarChart/>} />
           </Routes>
         </div>
       </div>

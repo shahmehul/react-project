@@ -1,3 +1,7 @@
+.catalog-container{
+    padding: 10px;
+}
+
 .container .book-group h3 {
     text-align: center;
 }

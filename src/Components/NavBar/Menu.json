@@ -74,6 +74,11 @@
                 "id": "chat",
                 "label": "Chat",
                 "link": "/chat"
+              },
+              {
+                "id": "chart",
+                "label": "Bar Chart",
+                "link": "/barChart"
               }
             ]
           }

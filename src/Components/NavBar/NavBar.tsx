@@ -22,20 +22,6 @@ export default function NavBar(){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [activeId, setActiveId] = useState<string | null>(null);
-
-    // useEffect(() => {
-    //     const fetchData = async ()=> {
-    //         const response = await fetch("https://api.jsonbin.io/v3/qs/6975abe1d0ea881f40838951");
-    //         if(!response.ok) {
-    //             setError('There was some error.');
-    //             throw('there was error fetching data');
-    //         }
-    //         const data: ApiResponse = await response.json();
-    //         setMenu(data.record.menu);
-    //         setLoading(false);
-    //     }
-    //     fetchData();
-    // },[])
     return (
         <div className="nav-container">
             <aside>
@@ -43,7 +29,7 @@ export default function NavBar(){
                 {error && <p> Error: {error} </p>}
                 {
                     menu.map((node)=>(
-                        <div style={{textAlign:'left'}}>
+                        <div key={node.id} style={{textAlign:'left'}}>
                             <SidebarItem 
                                 key={node.id} 
                                 node={node}
