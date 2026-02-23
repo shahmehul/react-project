@@ -41,3 +41,16 @@
     padding:10px;
     margin:10px;
 }
+
+.card {
+    min-width: 350px;
+}
+
+.card span {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.card .name h3{
+    margin-top: 0px;
+}

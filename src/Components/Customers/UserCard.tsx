@@ -77,13 +77,13 @@ export default function UserCard({ user, managers, onSave }: UserCardProps) {
     } else {
         return (
             <div className="row card mtl">
-                <div className="column">
+                <div className="name column">
                     <h3>{form.name}</h3>
                     <button onClick={() => setIsEdit(true)} className="primary-button end"> Edit </button>
                 </div>
-                <p>{form.email}</p>
-                <p>{form.phone}</p>
-                <p>{form.managerName}</p>
+                <span>{form.email}</span>
+                <span>{form.phone}</span>
+                <span>{form.managerName}</span>
             </div>
         )
     }
