@@ -79,7 +79,13 @@
                 "id": "chart",
                 "label": "Bar Chart",
                 "link": "/barChart"
+              },
+              {
+                "id": "infinite",
+                "label": "Infinite Scroll",
+                "link": "/infinite"
               }
+
             ]
           }
         ]
